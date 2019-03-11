@@ -25,3 +25,6 @@
 *.exe
 *.out
 *.app
+
+# Target-specific object files (force-include)
+!targets/TARGET_NUVOTON/**
