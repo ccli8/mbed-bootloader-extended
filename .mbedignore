@@ -74,3 +74,5 @@ mbed-cloud-client/ns-hal-pal/*
 mbed-cloud-client/sal-stack-nanostack-eventloop/*
 mbed-cloud-client/source/*
 mbed-cloud-client/certificate-enrollment-client/*
+mbed-os/targets/TARGET_NUVOTON/TARGET_M2351/TARGET_NUMAKER_PFM_M2351/TARGET_M23_NS/*
+mbed-os/usb/*

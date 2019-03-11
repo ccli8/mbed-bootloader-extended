@@ -4,7 +4,7 @@
         "SHOW_PROGRESS_BAR=0",
         "MAX_COPY_RETRIES=1",
         "MAX_BOOT_RETRIES=3",
-        "ARM_BOOTLOADER_USE_NVSTORE_ROT=1",
+        "ARM_BOOTLOADER_USE_NVSTORE_ROT=0",
         "ARM_UC_USE_PAL_CRYPTO=0",
         "ARM_UC_USE_PAL_BLOCKDEVICE=1",
         "ARM_UC_PAAL_TRACE_ENABLE=0",
@@ -41,7 +41,6 @@
     "target_overrides": {
         "*": {
             "target.features_remove"           : ["LWIP"],
-            "target.features_add"              : ["COMMON_PAL"],
             "target.extra_labels_remove"       : ["PSA"],
             "target.components_remove"         : ["FLASHIAP"],
             "platform.stdio-baud-rate"         : 115200,
@@ -315,6 +314,29 @@
             "update-client.application-details": "(MBED_CONF_APP_FLASH_START_ADDRESS + 64*1024)",
             "application-start-address"        : "(MBED_CONF_APP_FLASH_START_ADDRESS + 65*1024)",
             "max-application-size"             : "DEFAULT_MAX_APPLICATION_SIZE"
+        },
+        "NUMAKER_PFM_M2351": {
+            "target.components_add"            : ["NUSD"],
+            "drivers.uart-serial-rxbuf-size"    : 1024,
+            "drivers.uart-serial-txbuf-size"    : 1024,
+            "flash-start-address"               : "0x10030000",
+            "flash-size"                        : "0x50000",
+            "nvstore.area_1_address"            : "(MBED_CONF_APP_FLASH_START_ADDRESS + MBED_CONF_APP_FLASH_SIZE - 2*(4*1024))",
+            "nvstore.area_1_size"               : "(4*1024)",
+            "nvstore.area_2_address"            : "(MBED_CONF_APP_FLASH_START_ADDRESS + MBED_CONF_APP_FLASH_SIZE - 1*(4*1024))",
+            "nvstore.area_2_size"               : "(4*1024)",
+            "update-client.storage-address"     : "(64*1024*1024)",
+            "update-client.storage-size"        : "(2*1024*1024)",
+            "update-client.storage-locations"   : 1,
+            "update-client.firmware-header-version" : "2",
+            "update-client.application-details" : "(MBED_CONF_APP_FLASH_START_ADDRESS + 64*1024)",
+            "application-start-address"         : "(MBED_CONF_APP_FLASH_START_ADDRESS + 65*1024)",
+            "max-application-size"              : "DEFAULT_MAX_APPLICATION_SIZE",
+
+            "target.mbed_rom_start"             : "0x10030000",
+            "target.mbed_rom_size"              : "0x50000",
+            "target.mbed_ram_start"             : "0x30008000",
+            "target.mbed_ram_size"              : "0x10000"
         },
        "GR_LYCHEE": {
             "target.components_add"            : ["SD"],
